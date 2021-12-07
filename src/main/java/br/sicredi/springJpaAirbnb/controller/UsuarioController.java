@@ -1,6 +1,6 @@
 package br.sicredi.springJpaAirbnb.controller;
 
-import br.sicredi.springJpaAirbnb.models.Usuario;
+import br.sicredi.springJpaAirbnb.models.user;
 import br.sicredi.springJpaAirbnb.dto.UsuarioDto;
 import br.sicredi.springJpaAirbnb.service.usuario.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +18,12 @@ public class UsuarioController {
     UsuarioService usuarioService;
 
     @GetMapping
-    public ResponseEntity<List<Usuario>> findAll() {
+    public ResponseEntity<List<user>> findAll() {
         return new ResponseEntity<>(usuarioService.findAll(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Usuario>> findById(@PathVariable("id") Long id) {
+    public ResponseEntity<Optional<user>> findById(@PathVariable("id") Long id) {
         return new ResponseEntity<>(usuarioService.findById(id), HttpStatus.OK);
     }
 
