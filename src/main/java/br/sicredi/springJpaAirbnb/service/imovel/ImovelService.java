@@ -4,14 +4,10 @@ import br.sicredi.springJpaAirbnb.models.Imovel;
 import br.sicredi.springJpaAirbnb.models.data.TiposImovel;
 import br.sicredi.springJpaAirbnb.dto.ImovelDto;
 import br.sicredi.springJpaAirbnb.repository.ImovelRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@RequiredArgsConstructor
-@Component
 public class ImovelService {
     @Autowired
     ImovelRepository imovelRepository;

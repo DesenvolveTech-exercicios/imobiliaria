@@ -1,37 +1,33 @@
 package br.sicredi.springJpaAirbnb.service.usuario;
 
-import br.sicredi.springJpaAirbnb.models.user;
+import br.sicredi.springJpaAirbnb.models.Usuario;
 import br.sicredi.springJpaAirbnb.dto.UsuarioDto;
 import br.sicredi.springJpaAirbnb.repository.UsuarioRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
 
-@RequiredArgsConstructor
-@Component
+
 public class UsuarioService {
     @Autowired
-    private final UsuarioRepository usuarioRepository;
+    UsuarioRepository usuarioRepository;
 
     public boolean verifyUserExist(UsuarioDto usuarioDto){
-        List<user> users = findAll();
-        if (users.isEmpty()) return true;
-        for(user user : users) {
-            if(user.getUsername().equals(usuarioDto.getUsuario())){
+        if (findAll().isEmpty()) return true;
+        for(Usuario Usuario : findAll()) {
+            if(Usuario.getUsuario().equals(usuarioDto.getUsuario())){
                 return false;
             }
         }
         return true;
     }
 
-    public List<user> findAll() {
+    public List<Usuario> findAll() {
         return usuarioRepository.findAll();
     }
 
-    public Optional<user> findById(Long id) {
+    public Optional<Usuario> findById(Long id) {
         return usuarioRepository.findById(id);
     }
 

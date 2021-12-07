@@ -11,12 +11,14 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @RequiredArgsConstructor
-@Table(name = "users")
-public class user {
+public class Usuario {
     @Id
-    private String username;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     @NonNull
-    private String password;
+    private String usuario;
     @NonNull
-    private Boolean enabled;
+    private String senha;
+    @NonNull
+    private TiposUsuario tipo;
 }
